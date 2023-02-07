@@ -1,4 +1,4 @@
-package id.kawahedu;
+package id.kawahedu.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
