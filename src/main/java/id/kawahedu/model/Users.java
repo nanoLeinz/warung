@@ -1,7 +1,6 @@
 package id.kawahedu.model;
 
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -14,30 +13,43 @@ import java.util.UUID;
 public class Users extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id", nullable = false)
-    private UUID id;
+    @Column(nullable = false)
+    private UUID user_id;
     @Column(length = 50)
     private String name;
     @Column(length = 30)
-    private String tempat_lahir;
-    private LocalDate tanggal_lahir;
+    private String place_bd;
+    private LocalDate date_bd;
     @Column(length = 50)
     private String email;
     @Column(length = 10)
     private String role;
-    private Boolean status;
+    @Column(length = 1)
+    private Integer status;
     private Integer created_by;
     private LocalDateTime created_date;
     private Integer update_by;
     private LocalDateTime update_date;
 
+    private String password;
 
-    public UUID getId() {
-        return id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
+
+    public UUID getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(UUID user_id) {
+        this.user_id = user_id;
     }
 
     public String getName() {
@@ -48,20 +60,20 @@ public class Users extends PanacheEntityBase {
         this.name = name;
     }
 
-    public String getTempat_lahir() {
-        return tempat_lahir;
+    public String getPlace_bd() {
+        return place_bd;
     }
 
-    public void setTempat_lahir(String tempat_lahir) {
-        this.tempat_lahir = tempat_lahir;
+    public void setPlace_bd(String place_bd) {
+        this.place_bd = place_bd;
     }
 
-    public LocalDate getTanggal_lahir() {
-        return tanggal_lahir;
+    public LocalDate getDate_bd() {
+        return date_bd;
     }
 
-    public void setTanggal_lahir(LocalDate tanggal_lahir) {
-        this.tanggal_lahir = tanggal_lahir;
+    public void setDate_bd(LocalDate date_bd) {
+        this.date_bd = date_bd;
     }
 
     public String getEmail() {
@@ -80,11 +92,11 @@ public class Users extends PanacheEntityBase {
         this.role = role;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -119,4 +131,5 @@ public class Users extends PanacheEntityBase {
     public void setUpdate_date(LocalDateTime update_date) {
         this.update_date = update_date;
     }
+
 }
